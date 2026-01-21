@@ -1,0 +1,1997 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio - Técnico em eletrônica & Robótica</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #00d9ff;
+            --secondary: #ff6b35;
+            --dark-bg: #0f1419;
+            --card-bg: #1a1f2e;
+            --text-light: #e0e0e0;
+            --text-muted: #b0c4de;
+            --border-color: #2a3242;
+            --gradient: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            --gradient-reverse: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--dark-bg);
+            color: var(--text-light);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Scrollbar personalizada */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #1a1f2e;
+        }
+        
+        ::webkit-scrollbar-thumb {
+            background: var(--gradient);
+            border-radius: 5px;
+        }
+
+        /* Header e navegação */
+        header {
+            padding: 6rem 2rem 4rem;
+            text-align: center;
+            background: linear-gradient(135deg, #1a2332 0%, #0f1419 100%);
+            border-bottom: 2px solid var(--secondary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(0, 217, 255, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(255, 107, 53, 0.05) 0%, transparent 50%);
+            z-index: 0;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            color: var(--text-muted);
+            font-weight: 400;
+            letter-spacing: 0.5px;
+            margin-bottom: 2rem;
+        }
+
+        /* Navegação fixa */
+        nav {
+            padding: 1.2rem;
+            text-align: center;
+            background: rgba(26, 31, 46, 0.95);
+            border-bottom: 1px solid rgba(0, 217, 255, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            padding: 0.8rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.5rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        nav a.active {
+            color: var(--primary);
+        }
+
+        nav a.active::after {
+            width: 100%;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient);
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-light);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Container principal */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Seção Sobre */
+        .about-section {
+            margin: 4rem 0;
+        }
+
+        .about-container {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .profile-image {
+            position: sticky;
+            top: 6rem;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 2px solid transparent;
+            background-clip: padding-box;
+            position: relative;
+        }
+
+        .profile-image::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            border-radius: 12px;
+            padding: 2px;
+            background: var(--gradient);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .profile-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .about-content {
+            padding-top: 1rem;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--gradient);
+            margin-top: 0.8rem;
+            border-radius: 2px;
+        }
+
+        .about-text {
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: rgba(26, 31, 46, 0.7);
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+            background: rgba(26, 31, 46, 0.9);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Seção Projetos */
+        .section {
+            margin: 5rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header .section-title::after {
+            margin: 0.8rem auto;
+        }
+
+        .section-subtitle {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .projects-container {
+            display: flex;
+            flex-direction: column;
+            gap: 4rem;
+        }
+
+        .project-featured {
+            background: var(--card-bg);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            transition: all 0.4s ease;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .project-featured.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .project-featured:hover {
+            border-color: var(--primary);
+            box-shadow: 0 20px 40px rgba(0, 217, 255, 0.15);
+            transform: translateY(-5px);
+        }
+
+        .project-featured-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+        }
+
+        .project-image-large {
+            height: 600px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .project-image-large img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .project-featured:hover .project-image-large img {
+            transform: scale(1.05);
+        }
+
+        .project-image-large::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, transparent 80%, rgba(0, 0, 0, 0.1) 100%);
+        }
+
+        .project-details {
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .project-number {
+            font-size: 0.9rem;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .project-title-large {
+            font-size: 1.8rem;
+            color: white;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .project-description-large {
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            font-size: 1.05rem;
+        }
+
+        .project-tech-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .tech-item {
+            background: rgba(0, 217, 255, 0.1);
+            color: var(--primary);
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            border: 1px solid rgba(0, 217, 255, 0.2);
+            transition: all 0.3s;
+        }
+
+        .tech-item:hover {
+            background: rgba(0, 217, 255, 0.2);
+            border-color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .project-links-large {
+            display: flex;
+            gap: 1.2rem;
+        }
+
+        .project-link-large {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.95rem;
+            padding: 0.7rem 1.5rem;
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.05);
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .project-link-large:hover {
+            background: rgba(0, 217, 255, 0.1);
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .project-link-large i {
+            font-size: 1.1rem;
+        }
+
+        /* Habilidades - NOVO ESTILO SEM BARRAS */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 2rem;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s;
+        }
+
+        .skill-category:hover {
+            border-color: var(--primary);
+            box-shadow: 0 10px 25px rgba(0, 217, 255, 0.1);
+        }
+
+        .skill-category h3 {
+            color: white;
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 2px solid rgba(0, 217, 255, 0.2);
+        }
+
+        .skills-list {
+            list-style: none;
+        }
+
+        .skill-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s;
+        }
+
+        .skill-item:last-child {
+            border-bottom: none;
+        }
+
+        .skill-item:hover {
+            transform: translateX(5px);
+        }
+
+        .skill-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(0, 217, 255, 0.1);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+
+        .skill-info {
+            flex: 1;
+        }
+
+        .skill-name {
+            color: var(--text-light);
+            font-weight: 500;
+            margin-bottom: 0.2rem;
+            font-size: 1rem;
+        }
+
+        .skill-level {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            font-weight: 400;
+        }
+
+        /* Seção Galeria de Fotos */
+        .gallery-section {
+            background: linear-gradient(135deg, rgba(26, 31, 46, 0.7) 0%, rgba(15, 20, 25, 0.7) 100%);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-top: 2rem;
+            border: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gallery-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            border-radius: 12px;
+        }
+
+        .gallery-scroll {
+            display: flex;
+            gap: 1.5rem;
+            padding: 1rem;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; /* IE/Edge */
+        }
+
+        .gallery-scroll::-webkit-scrollbar {
+            display: none; /* Chrome/Safari/Opera */
+        }
+
+        .gallery-item {
+            flex: 0 0 auto;
+            width: 300px;
+            height: 250px;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+            border-color: var(--primary);
+            box-shadow: 0 10px 25px rgba(0, 217, 255, 0.3);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            color: white;
+            padding: 1.5rem 1rem 1rem;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        .gallery-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+
+        .gallery-date {
+            font-size: 0.8rem;
+            opacity: 0.8;
+        }
+
+        .gallery-controls {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            transform: translateY(-50%);
+            display: flex;
+            justify-content: space-between;
+            padding: 0 1rem;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .gallery-btn {
+            background: var(--gradient);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            pointer-events: all;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .gallery-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .gallery-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: scale(1);
+        }
+
+        .gallery-info {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .gallery-counter {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        .gallery-description {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Indicadores de scroll */
+        .scroll-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .scroll-indicator {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--border-color);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .scroll-indicator.active {
+            background: var(--primary);
+            transform: scale(1.2);
+        }
+
+        /* Animações */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .gallery-item {
+            animation: fadeIn 0.5s ease forwards;
+            opacity: 0;
+        }
+
+        .gallery-item:nth-child(1) { animation-delay: 0.1s; }
+        .gallery-item:nth-child(2) { animation-delay: 0.2s; }
+        .gallery-item:nth-child(3) { animation-delay: 0.3s; }
+        .gallery-item:nth-child(4) { animation-delay: 0.4s; }
+        .gallery-item:nth-child(5) { animation-delay: 0.5s; }
+        .gallery-item:nth-child(6) { animation-delay: 0.6s; }
+        .gallery-item:nth-child(7) { animation-delay: 0.7s; }
+        .gallery-item:nth-child(8) { animation-delay: 0.8s; }
+        .gallery-item:nth-child(9) { animation-delay: 0.9s; }
+        .gallery-item:nth-child(10) { animation-delay: 1s; }
+
+        /* Contato */
+        .contact-section {
+            text-align: center;
+            padding: 4rem 3rem;
+            background: linear-gradient(135deg, #1a1f2e 0%, #0f1419 100%);
+            border-radius: 16px;
+            margin-top: 3rem;
+            border: 2px solid transparent;
+            background-clip: padding-box;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-section::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            border-radius: 16px;
+            padding: 2px;
+            background: var(--gradient);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+
+        .contact-section::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 217, 255, 0.05) 0%, transparent 70%);
+            z-index: 0;
+        }
+
+        .contact-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+        }
+
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, var(--primary), #0096c7);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+            box-shadow: 0 4px 15px rgba(0, 217, 255, 0.3);
+            border: none;
+            cursor: pointer;
+        }
+
+        .contact-btn:hover {
+            background: linear-gradient(135deg, #00b8e6, #007ea3);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 217, 255, 0.5);
+        }
+
+        .contact-btn.secondary {
+            background: linear-gradient(135deg, var(--secondary), #e85a2a);
+        }
+
+        .contact-btn.secondary:hover {
+            background: linear-gradient(135deg, #ff8555, #ff6b35);
+        }
+
+        .contact-btn i {
+            font-size: 1.2rem;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: #121212;
+            margin-top: 4rem;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border-color);
+            font-size: 0.9rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .social-link {
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            transition: all 0.3s;
+        }
+
+        .social-link:hover {
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        /* Animações gerais */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(0, 217, 255, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(0, 217, 255, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(0, 217, 255, 0); }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        /* Responsividade */
+        @media (max-width: 992px) {
+            .about-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .profile-image {
+                position: static;
+                max-width: 300px;
+                margin: 0 auto;
+            }
+            
+            .project-featured-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .project-image-large {
+                height: 250px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: rgba(26, 31, 46, 0.98);
+                flex-direction: column;
+                padding: 2rem;
+                transform: translateY(-100%);
+                opacity: 0;
+                transition: all 0.3s ease;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+                z-index: 999;
+            }
+            
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .about-stats {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .project-details {
+                padding: 2rem;
+            }
+            
+            .project-title-large {
+                font-size: 1.6rem;
+            }
+            
+            .gallery-item {
+                width: 250px;
+                height: 200px;
+            }
+            
+            .gallery-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+            
+            .contact-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .contact-btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .section {
+                margin: 3rem 0;
+            }
+            
+            .project-tech-list {
+                gap: 0.5rem;
+            }
+            
+            .tech-item {
+                padding: 0.4rem 0.9rem;
+                font-size: 0.8rem;
+            }
+            
+            .project-links-large {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+            
+            .project-link-large {
+                justify-content: center;
+            }
+            
+            .gallery-item {
+                width: 220px;
+                height: 180px;
+            }
+            
+            .gallery-controls {
+                padding: 0 0.5rem;
+            }
+        }
+
+        /* Dark mode toggle */
+        .theme-toggle {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            z-index: 100;
+            transition: all 0.3s;
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Modal para imagens */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            position: relative;
+        }
+
+        .modal-img {
+            width: 100%;
+            height: auto;
+            max-height: 80vh;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            background: var(--gradient);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .modal-close:hover {
+            transform: scale(1.1);
+        }
+
+        .modal-caption {
+            color: white;
+            text-align: center;
+            margin-top: 1rem;
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Toggle de tema -->
+    <div class="theme-toggle" id="themeToggle">
+        <i class="fas fa-moon"></i>
+    </div>
+
+    <!-- Modal para visualização de imagens -->
+    <div class="modal" id="imageModal">
+        <button class="modal-close" id="modalClose">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="modal-content">
+            <img class="modal-img" id="modalImage" src="" alt="">
+            <div class="modal-caption" id="modalCaption"></div>
+        </div>
+    </div>
+
+    <header>
+        <div class="header-content">
+            <h1>Técnico em eletrônica</h1>
+            <p class="subtitle">Especialista em Sistemas Embarcados & Robótica Autônoma</p>
+            <div class="scroll-indicator">
+                <i class="fas fa-chevron-down pulse" style="color: var(--primary); font-size: 1.5rem; margin-top: 2rem;"></i>
+            </div>
+        </div>
+    </header>
+
+    <nav id="mainNav">
+        <div class="nav-container">
+            <div class="logo">Gilson Domingos</div>
+            <div class="nav-links" id="navLinks">
+                <a href="#sobre" class="active">Sobre</a>
+                <a href="#projetos">Projetos</a>
+                <a href="#habilidades">Habilidades</a>
+                <a href="#galeria">Galeria</a>
+                <a href="#contato">Contato</a>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <div class="container">
+        <section id="sobre" class="section about-section">
+            <div class="about-container">
+                <div class="profile-image">
+                    <img src="image/Gilson.jpeg" alt="Gilson - Engenheiro Eletrônico">
+                </div>
+                <div class="about-content">
+                    <h2 class="section-title">Sobre Mim</h2>
+                    <p class="about-text">
+                        Entusiasta especializado em sistemas embarcados e robótica com mais de 5 anos de experiência no desenvolvimento de soluções inovadoras. Expertise em design de circuitos, programação de microcontroladores e integração de sistemas IoT para aplicações industriais e de consumo.
+                    </p>
+                    <p class="about-text">
+                        Minha paixão está em criar soluções que unem hardware e software para resolver problemas complexos. Tenho experiência com Arduino, ESP32, Raspberry Pi, STM32 e desenvolvimento de PCBs personalizados usando Altium Designer e KiCad.
+                    </p>
+                    <p class="about-text">
+                        Além do desenvolvimento técnico, atuo em gestão de projetos, prototipagem rápida e validação de produtos para produção em escala. Em reconhecimento ao meu trabalho inovador, fui vencedor do Prêmio de Inovação em Tecnologia Ambiental em 2025.
+                    </p>
+                    
+            </div>
+        </section>
+
+        <section id="projetos" class="section">
+            <div class="section-header">
+                <h2 class="section-title">Projetos em Destaque</h2>
+                <p class="section-subtitle">Soluções inovadoras em eletrônica, robótica e IoT desenvolvidas para desafios reais</p>
+            </div>
+            
+            <div class="projects-container" id="projectsContainer">
+                <!-- Projetos serão inseridos via JavaScript -->
+            </div>
+        </section>
+
+        <section id="habilidades" class="section">
+            <div class="section-header">
+                <h2 class="section-title">Habilidades Técnicas</h2>
+                <p class="section-subtitle">Conhecimento especializado em diversas áreas da engenharia eletrônica e de software</p>
+            </div>
+            
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3><i class="fas fa-microchip"></i> Hardware</h3>
+                    <ul class="skills-list">
+                        <li class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fas fa-project-diagram"></i>
+                            </div>
+                            <div class="skill-info">
+                                <div class="skill-name">Design de Circuitos</div>
+                                <div class="skill-level">Especialista em design analógico e digital</div>
+                            </div>
+                        </li>
+                        <li class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fas fa-layer-group"></i>
+                            </div>
+                            <div class="skill-info">
+                                <div class="skill-name">PCB Layout</div>
+                                <div class="skill-level">Altium Designer, KiCad, Eagle</div>
+                            </div>
+                        </li>
+                        <li class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fas fa-microchip"></i>
+                            </div>
+                            <div class="skill-info">
+                                <div class="skill-name">Microcontroladores</div>
+                                <div class="skill-level">ESP32, STM32, Arduino, Raspberry Pi</div>
+                            </div>
+                        </li>
+                        <li class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fas fa-tools"></i>
+                            </div>
+                            <div class="skill-info">
+                                <div class="skill-name">Prototipagem</div>
+                                <div class="skill-level">Montagem e teste de protótipos</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-code"></i> Software</h3>
+                    <ul class="skills-list">
+                        <li class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fab fa-cuttlefish"></i>
+                            </div>
+                            <div class="skill-info">
+                                <div class="skill-name">C/C++ Embarcado</div>
+                                <div class="skill-level">Desenvolvimento de firmware</div>
+                            </div>
+                        </li>
+                        <li class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fab fa-python"></i>
+                            </div>
+                            <div class="skill-info">
+                                <div class="skill-name">Python</div>
+                                <div class="skill-level">Scripts, automação, análise de dados</div>
+                            </div>
+                        </li>
+                        <li class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fab fa-linux"></i>
+                            </div>
+                            <div class="skill-info">
+                                <div class="skill-name">Linux/RTOS</div>
+                                <div class="skill-level">Sistemas embarcados Linux e FreeRTOS</div>
+                            </div>
+                        </li>
+                        <li class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <div class="skill-info">
+                                <div class="skill-name">Desenvolvimento Mobile</div>
+                                <div class="skill-level">Apps para controle de dispositivos IoT</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-robot"></i> Especialidades</h3>
+                    <ul class="skills-list">
+                        <li class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <div class="skill-info">
+                                <div class="skill-name">Sistemas Robóticos</div>
+                                <div class="skill-level">Navegação, controle e visão computacional</div>
+                            </div>
+                        </li>
+                        <li class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fas fa-wifi"></i>
+                            </div>
+                            <div class="skill-info">
+                                <div class="skill-name">IoT & Comunicações</div>
+                                <div class="skill-level">WiFi, Bluetooth, LoRa, MQTT</div>
+                            </div>
+                        </li>
+                        <li class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fas fa-cogs"></i>
+                            </div>
+                            <div class="skill-info">
+                                <div class="skill-name">Controle & Automação</div>
+                                <div class="skill-level">Sistemas de controle PID, PLC básico</div>
+                            </div>
+                        </li>
+                        <li class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                            <div class="skill-info">
+                                <div class="skill-name">Eletrônica de Potência</div>
+                                <div class="skill-level">Fontes chaveadas, drivers de motor</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Galeria -->
+        <section id="galeria" class="section">
+            <div class="section-header">
+                <h2 class="section-title">Galeria de Fotos</h2>
+                <p class="section-subtitle">Momentos marcantes, projetos em desenvolvimento e conquistas em destaque</p>
+            </div>
+            
+            <div class="gallery-section">
+                <div class="gallery-container">
+                    <div class="gallery-scroll" id="galleryScroll">
+                        <!-- As fotos serão inseridas via JavaScript -->
+                    </div>
+                    
+                    <div class="gallery-controls">
+                        <button class="gallery-btn prev-btn" id="prevBtn">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="gallery-btn next-btn" id="nextBtn">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="gallery-info">
+                    <div class="gallery-counter">
+                        <span id="currentPhoto">1</span> / <span id="totalPhotos">5</span>
+                    </div>
+                    <p class="gallery-description" id="galleryDescription">
+                        Clique nas setas para navegar ou arraste para o lado
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contato" class="section">
+            <div class="contact-section">
+                <div class="contact-content">
+                    <h2 class="section-title">Vamos Trabalhar Juntos?</h2>
+                    <p style="margin-bottom: 2rem; font-size: 1.1rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+                        Estou sempre aberto a discutir novas oportunidades, colaborações em projetos desafiadores ou simplesmente conversar sobre tecnologia e inovação.
+                    </p>
+                    <div class="contact-buttons">
+                        <a href="gilsondomingosjw8@gmail.com" class="contact-btn">
+                            <i class="fas fa-envelope"></i> Enviar Email
+                        </a>
+                        <a href="https://www.linkedin.com/in/gilson-domingos-3ba750352" class="contact-btn secondary">
+                            <i class="fab fa-linkedin"></i> LinkedIn
+                        </a>
+                        <a href="https://github.com/GilsonDomingos1" class="contact-btn">
+                            <i class="fab fa-github"></i> GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="copyright">
+                <p>&copy; 2025 Gilson - Entusiasta em eletrônica. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    // Dados dos 4 projetos principais
+    const featuredProjects = [
+        {
+            id: 1,
+            number: "01",
+            title: "Robô Autônomo de Entrega (Delivery bot) ",
+            description: "Desenvolvi um robô autônomo de entrega capaz de operar de forma independente ou por controle remoto via internet. O sistema utiliza ESP32-CAM, sensores, GPS e visão computacional para navegação e reconhecimento de objetos, além de compartimento com abertura por código de segurança. O controle é feito por aplicativo mobile no MIT App Inventor, com transmissão de vídeo em tempo real via Ngrok, garantindo entregas seguras e monitoradas.",
+            image: "image/bot.jpeg",
+            technologies: ["Robótica Autônoma", "Visão Computacional", "MQTT", "GPS", "Python", "C++"],
+            links: {
+                github: "#",
+                demo: "#",
+                details: "#"
+            }
+        },
+        {
+            id: 2,
+            number: "02",
+            title: "Gerador de Água Potável pelo Ar (AWG) ",
+            description: "Desenvolvi um protótipo inovador de gerador de água potável a partir do ar, com capacidade de até 100 litros por dia. O sistema integra IoT para monitoramento e controle remoto, utiliza sensores de temperatura e umidade, microcontrolador e processos de condensação otimizados, além de filtros para purificação da água. O projeto é sustentável, portátil e de baixo custo, voltado a regiões com escassez hídrica.",
+            image: "image/eu.jpeg",
+            technologies: ["ESP32", "IoT", "Sensores", "Motor AC", "MQTT", "Dashboard Web"],
+            links: {
+                github: "#",
+                demo: "#",
+                details: "#"
+            }
+        },
+        {
+            id: 3,
+            number: "03",
+            title: "Capacete especial  para rastreio de trabalhadores de alto risco",
+            description: "Projetei e desenvolvi um protótipo de um capacete inteligente equipado com um sistema de posicionamento global (GPS) barato, o obejectivo do protótipo é fornecer dados da localização exata de trabalhadores em zonas de alto risco, como: em minas, mares etc. De forma a melhorar o rastreio de paradeiro em casos de desastres ou sumiço, tornando possivel receber dados de qualquer parte do globo.",
+            image: "image/capacete.jpg",
+            technologies: ["Esp01", "GPS", "Telemetria", "Google maps", "neo 6m", "MQTT"],
+            links: {
+                github: "#",
+                demo: "#",
+                details: "#"
+            }
+        },
+        {
+            id: 4,
+            number: "04",
+            title: "Monitor de postura corporal",
+            description: "O projeto consiste em um corretor de postura inteligente que monitora automaticamente a posição do corpo do usuário. Compacto e discreto, pode ser usado por baixo da roupa. Ao detectar posturas inadequadas, como a curvatura excessiva das costas, o dispositivo emite um alerta por vibração, incentivando a correção imediata de forma sutil e eficaz. Além disso, o sistema é integrado a um aplicativo que acompanha a evolução postural ao longo do tempo, oferecendo estatísticas e insights para a criação de hábitos saudáveis. A solução é ideal para pessoas que passam longos períodos sentadas, ajudando na prevenção de dores crônicas e problemas na coluna. A placa foi desenvolvida para prototipagem rápida de dispositivos IoT, com foco em baixo consumo energético e facilidade de uso.",
+            image: "image/postura.jpeg",
+            technologies: ["PCB Design", "ESP32-S3", "KiCad", "Sensores Integrados", "USB-C", "Prototipagem"],
+            links: {
+                github: "#",
+                demo: "#",
+                details: "#"
+            }
+        }
+    ];
+
+    // Dados da galeria de fotos
+    const galleryPhotos = [
+        {
+            id: 1,
+            title: "Venci o PITA",
+            description: "Recebendo o cheque de primeiro lugar no Prêmio de Inovação em Tecnologia Ambiental em 2025.",
+            image: "image/4.jpeg",
+            date: "2025",
+            category: "workspace"
+        },
+        {
+            id: 2,
+            title: "Protótipo em Desenvolvimento",
+            description: "Fase inicial de montagem de um novo sistema robótico",
+            image: "image/robotics.jpeg",
+            date: "2022",
+            category: "Robótica"
+        },
+        {
+            id: 3,
+            title: "Teste de hardware",
+            description: "Momento em que fazia o teste de baud rate do esp32",
+            image: "image/esp.jpeg",
+            date: "2023",
+            category: "teste"
+        },
+        {
+            id: 4,
+            title: "Trofeu",
+            description: "trofeu que recebi ao vencer o PITA",
+            image: "image/trofeu.jpeg",
+            date: "2025",
+            category: "trofeu"
+        },
+        {
+            id: 5,
+            title: "AWG",
+            description: "Projecto gerador de água potável pelo ar depois de terminado",
+            image: "image/machine.jpeg",
+            date: "2025",
+            category: "AWG"
+        }
+    ];
+
+    // Inicialização quando o DOM estiver carregado
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log('DOM carregado, inicializando...');
+        
+        // Inicializar projetos (APENAS UMA VEZ)
+        initProjects();
+        
+        // Inicializar galeria (APENAS UMA VEZ)
+        initGallery();
+        
+        // Configurar navegação
+        initNavigation();
+        
+        // Configurar animações
+        initAnimations();
+        
+        // Configurar toggle de tema
+        initThemeToggle();
+        
+        // Configurar modal de imagens
+        initImageModal();
+        
+        // Adicionar fallback para imagens locais
+        initImageFallbacks();
+        
+        console.log('Inicialização concluída!');
+    });
+
+    function initProjects() {
+        console.log('Inicializando projetos...');
+        const projectsContainer = document.getElementById('projectsContainer');
+        
+        if (!projectsContainer) {
+            console.error('projectsContainer não encontrado!');
+            return;
+        }
+        
+        // Limpar conteúdo existente
+        projectsContainer.innerHTML = '';
+        
+        featuredProjects.forEach(project => {
+            const projectElement = document.createElement('div');
+            projectElement.className = 'project-featured';
+            projectElement.setAttribute('data-id', project.id);
+            
+            projectElement.innerHTML = `
+                <div class="project-featured-content">
+                    <div class="project-image-large">
+                        <img src="${project.image}" alt="${project.title}" loading="lazy" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'">
+                    </div>
+                    <div class="project-details">
+                        <div class="project-number">Projeto ${project.number}</div>
+                        <h3 class="project-title-large">${project.title}</h3>
+                        <p class="project-description-large">${project.description}</p>
+                        <div class="project-tech-list">
+                            ${project.technologies.map(tech => `<span class="tech-item">${tech}</span>`).join('')}
+                        </div>
+                        
+                    </div>
+                </div>
+            `;
+            
+            projectsContainer.appendChild(projectElement);
+        });
+        console.log('Projetos inicializados com sucesso!');
+    }
+
+    function initGallery() {
+        console.log('Inicializando galeria...');
+        const galleryScroll = document.getElementById('galleryScroll');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const currentPhoto = document.getElementById('currentPhoto');
+        const totalPhotos = document.getElementById('totalPhotos');
+        const galleryDescription = document.getElementById('galleryDescription');
+        
+        if (!galleryScroll || !prevBtn || !nextBtn) {
+            console.error('Elementos da galeria não encontrados!');
+            return;
+        }
+        
+        // Limpar conteúdo existente
+        galleryScroll.innerHTML = '';
+        
+        // Inicializar contador
+        totalPhotos.textContent = galleryPhotos.length;
+        
+        // Criar itens da galeria
+        galleryPhotos.forEach((photo, index) => {
+            const galleryItem = document.createElement('div');
+            galleryItem.className = 'gallery-item';
+            galleryItem.setAttribute('data-id', photo.id);
+            
+            galleryItem.innerHTML = `
+                <img src="${photo.image}" alt="${photo.title}" loading="lazy" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'">
+                <div class="gallery-overlay">
+                    <div class="gallery-title">${photo.title}</div>
+                    <div class="gallery-date">${photo.date}</div>
+                </div>
+            `;
+            
+            // Adicionar evento de clique para abrir modal
+            galleryItem.addEventListener('click', () => {
+                openImageModal(photo.image, photo.title, photo.description);
+            });
+            
+            galleryScroll.appendChild(galleryItem);
+        });
+        
+        // Configurar navegação
+        let currentIndex = 0;
+        
+        function updateGalleryInfo() {
+            if (currentIndex >= 0 && currentIndex < galleryPhotos.length) {
+                currentPhoto.textContent = currentIndex + 1;
+                galleryDescription.textContent = galleryPhotos[currentIndex].description;
+                
+                // Atualizar estado dos botões
+                prevBtn.disabled = currentIndex === 0;
+                nextBtn.disabled = currentIndex === galleryPhotos.length - 1;
+                
+                // Rolar para a foto atual
+                const item = document.querySelector('.gallery-item');
+                if (item) {
+                    const itemWidth = item.offsetWidth;
+                    const gap = 24; // 1.5rem em pixels
+                    galleryScroll.scrollTo({
+                        left: currentIndex * (itemWidth + gap),
+                        behavior: 'smooth'
+                    });
+                }
+            }
+        }
+        
+        // Botão anterior
+        prevBtn.addEventListener('click', () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateGalleryInfo();
+            }
+        });
+        
+        // Próximo botão
+        nextBtn.addEventListener('click', () => {
+            if (currentIndex < galleryPhotos.length - 1) {
+                currentIndex++;
+                updateGalleryInfo();
+            }
+        });
+        
+        // Navegação por teclado
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft' && currentIndex > 0) {
+                currentIndex--;
+                updateGalleryInfo();
+            } else if (e.key === 'ArrowRight' && currentIndex < galleryPhotos.length - 1) {
+                currentIndex++;
+                updateGalleryInfo();
+            }
+        });
+        
+        // Navegação por arrastar - VERSÃO SIMPLIFICADA
+        galleryScroll.style.cursor = 'grab';
+        
+        let isDragging = false;
+        let startX;
+        let scrollLeft;
+        
+        const startDrag = (e) => {
+            isDragging = true;
+            galleryScroll.style.cursor = 'grabbing';
+            startX = e.pageX || e.touches[0].pageX;
+            scrollLeft = galleryScroll.scrollLeft;
+        };
+        
+        const stopDrag = () => {
+            isDragging = false;
+            galleryScroll.style.cursor = 'grab';
+        };
+        
+        const doDrag = (e) => {
+            if (!isDragging) return;
+            e.preventDefault();
+            const x = e.pageX || e.touches[0].pageX;
+            const walk = (x - startX) * 1.5;
+            galleryScroll.scrollLeft = scrollLeft - walk;
+        };
+        
+        // Eventos para mouse
+        galleryScroll.addEventListener('mousedown', startDrag);
+        galleryScroll.addEventListener('mousemove', doDrag);
+        galleryScroll.addEventListener('mouseup', stopDrag);
+        galleryScroll.addEventListener('mouseleave', stopDrag);
+        
+        // Eventos para touch
+        galleryScroll.addEventListener('touchstart', startDrag);
+        galleryScroll.addEventListener('touchmove', doDrag);
+        galleryScroll.addEventListener('touchend', stopDrag);
+        
+        // Atualizar índice ao rolar
+        galleryScroll.addEventListener('scroll', () => {
+            const item = document.querySelector('.gallery-item');
+            if (item) {
+                const itemWidth = item.offsetWidth;
+                const gap = 24;
+                const scrollPosition = galleryScroll.scrollLeft;
+                const newIndex = Math.round(scrollPosition / (itemWidth + gap));
+                
+                if (newIndex >= 0 && newIndex < galleryPhotos.length && newIndex !== currentIndex) {
+                    currentIndex = newIndex;
+                    updateGalleryInfo();
+                }
+            }
+        });
+        
+        // Inicializar
+        updateGalleryInfo();
+        
+        // Criar indicadores de scroll
+        const indicatorsContainer = document.createElement('div');
+        indicatorsContainer.className = 'scroll-indicators';
+        
+        galleryPhotos.forEach((_, index) => {
+            const indicator = document.createElement('div');
+            indicator.className = `scroll-indicator ${index === 0 ? 'active' : ''}`;
+            indicator.setAttribute('data-index', index);
+            
+            indicator.addEventListener('click', () => {
+                currentIndex = index;
+                updateGalleryInfo();
+            });
+            
+            indicatorsContainer.appendChild(indicator);
+        });
+        
+        galleryScroll.parentNode.appendChild(indicatorsContainer);
+        
+        // Atualizar indicadores
+        function updateIndicators() {
+            document.querySelectorAll('.scroll-indicator').forEach((indicator, index) => {
+                indicator.classList.toggle('active', index === currentIndex);
+            });
+        }
+        
+        // Sobrescrever updateGalleryInfo para incluir indicadores
+        const originalUpdateGalleryInfo = updateGalleryInfo;
+        updateGalleryInfo = function() {
+            originalUpdateGalleryInfo();
+            updateIndicators();
+        };
+        
+        console.log('Galeria inicializada com sucesso!');
+    }
+
+    function initNavigation() {
+        console.log('Inicializando navegação...');
+        const nav = document.getElementById('mainNav');
+        const navLinks = document.getElementById('navLinks');
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const allNavLinks = document.querySelectorAll('nav a');
+        
+        if (!nav || !navLinks || !mobileMenuBtn) {
+            console.error('Elementos de navegação não encontrados!');
+            return;
+        }
+        
+        // Menu mobile
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navLinks.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Fechar menu ao clicar em um link
+        allNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Scroll spy para navegação
+        window.addEventListener('scroll', () => {
+            // Efeito de scroll na navbar
+            if (window.scrollY > 100) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+            
+            // Ativar link correspondente à seção visível
+            const sections = document.querySelectorAll('section');
+            const scrollPos = window.scrollY + 100;
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                const sectionId = section.getAttribute('id');
+                
+                if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+                    allNavLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${sectionId}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        });
+        
+        // Suavizar scroll para âncoras
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        console.log('Navegação inicializada com sucesso!');
+    }
+
+    function initAnimations() {
+        console.log('Inicializando animações...');
+        // Observer para animar elementos quando entrarem na viewport
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        // Observar projetos destacados
+        document.querySelectorAll('.project-featured').forEach(project => {
+            observer.observe(project);
+        });
+        
+        // Observar itens da galeria
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            observer.observe(item);
+        });
+        
+        // Observar itens de estatística
+        document.querySelectorAll('.stat-item').forEach(item => {
+            observer.observe(item);
+        });
+        
+        // Observar itens de habilidades
+        document.querySelectorAll('.skill-item').forEach(item => {
+            observer.observe(item);
+        });
+        console.log('Animações inicializadas com sucesso!');
+    }
+
+    function initThemeToggle() {
+        console.log('Inicializando toggle de tema...');
+        const themeToggle = document.getElementById('themeToggle');
+        
+        if (!themeToggle) {
+            console.error('themeToggle não encontrado!');
+            return;
+        }
+        
+        const themeIcon = themeToggle.querySelector('i');
+        
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('light-theme');
+            
+            if (document.body.classList.contains('light-theme')) {
+                // Tema claro
+                document.body.style.setProperty('--dark-bg', '#f5f7fa');
+                document.body.style.setProperty('--card-bg', '#ffffff');
+                document.body.style.setProperty('--text-light', '#333333');
+                document.body.style.setProperty('--text-muted', '#666666');
+                document.body.style.setProperty('--border-color', '#e0e0e0');
+                themeIcon.className = 'fas fa-sun';
+            } else {
+                // Tema escuro (padrão)
+                document.body.style.setProperty('--dark-bg', '#0f1419');
+                document.body.style.setProperty('--card-bg', '#1a1f2e');
+                document.body.style.setProperty('--text-light', '#e0e0e0');
+                document.body.style.setProperty('--text-muted', '#b0c4de');
+                document.body.style.setProperty('--border-color', '#2a3242');
+                themeIcon.className = 'fas fa-moon';
+            }
+        });
+        console.log('Toggle de tema inicializado com sucesso!');
+    }
+
+    function initImageModal() {
+        console.log('Inicializando modal de imagens...');
+        const modal = document.getElementById('imageModal');
+        const modalImage = document.getElementById('modalImage');
+        const modalCaption = document.getElementById('modalCaption');
+        const modalClose = document.getElementById('modalClose');
+        
+        if (!modal || !modalImage || !modalCaption || !modalClose) {
+            console.error('Elementos do modal não encontrados!');
+            return;
+        }
+        
+        // Fechar modal com ESC
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                modal.classList.remove('active');
+            }
+        });
+        
+        // Fechar modal clicando fora da imagem
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('active');
+            }
+        });
+        
+        // Fechar modal com botão
+        modalClose.addEventListener('click', () => {
+            modal.classList.remove('active');
+        });
+        
+        // Função para abrir modal
+        window.openImageModal = function(imageSrc, title, description) {
+            modalImage.src = imageSrc;
+            modalImage.onerror = function() {
+                this.onerror = null;
+                this.src = 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80';
+            };
+            modalCaption.textContent = `${title} - ${description}`;
+            modal.classList.add('active');
+        };
+        console.log('Modal de imagens inicializado com sucesso!');
+    }
+
+    function initImageFallbacks() {
+        console.log('Configurando fallbacks de imagens...');
+        // Adicionar fallback para imagens que não carregarem
+        document.querySelectorAll('img').forEach(img => {
+            img.addEventListener('error', function() {
+                console.log(`Erro ao carregar imagem: ${this.src}`);
+                const altText = this.alt.toLowerCase();
+                
+                const placeholderImages = {
+                    'robô': 'https://images.unsplash.com/photo-1555255707-c07966088b7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
+                    'iot': 'https://images.unsplash.com/photo-1559131397-f94da358a3f9?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
+                    'drone': 'https://images.unsplash.com/photo-1526243741027-444d633d7365?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
+                    'pcb': 'https://images.unsplash.com/photo-1629752187687-3d3c7ea3a21b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
+                    'certificado': 'https://images.unsplash.com/photo-1585771724684-382b1bdf4d43?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
+                    'prêmio': 'https://images.unsplash.com/photo-1510511459019-5dda7224f7de?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
+                    'evento': 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
+                    'workshop': 'https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
+                    'default': 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'
+                };
+                
+                let placeholder = placeholderImages.default;
+                
+                if (altText.includes('robô') || altText.includes('robótica')) {
+                    placeholder = placeholderImages['robô'];
+                } else if (altText.includes('iot')) {
+                    placeholder = placeholderImages['iot'];
+                } else if (altText.includes('drone')) {
+                    placeholder = placeholderImages['drone'];
+                } else if (altText.includes('pcb') || altText.includes('placa')) {
+                    placeholder = placeholderImages['pcb'];
+                } else if (altText.includes('certificad')) {
+                    placeholder = placeholderImages['certificado'];
+                } else if (altText.includes('prêmio') || altText.includes('premio')) {
+                    placeholder = placeholderImages['prêmio'];
+                } else if (altText.includes('evento') || altText.includes('palestra')) {
+                    placeholder = placeholderImages['evento'];
+                } else if (altText.includes('workshop')) {
+                    placeholder = placeholderImages['workshop'];
+                }
+                
+                this.src = placeholder;
+                console.log(`Usando fallback para: ${altText}`);
+            });
+        });
+        console.log('Fallbacks de imagens configurados!');
+    }
+</script>
+</body>
+</html>
